@@ -59,7 +59,6 @@ export default function Users() {
     dispatch({ type: "SET_SELECTED_USER", payload: user });
     setSelectedUser(user)
     navigate(`/user-details/${user.id}`, { state: {user} });
-    // navigate('/user-details/:id', { state: { user } })
   }
 
   return (
