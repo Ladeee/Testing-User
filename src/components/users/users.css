@@ -1,0 +1,94 @@
+.users-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  padding-left: 1.25rem;
+  padding-top: 1rem;
+}
+
+.users-list-wrapper{
+  box-shadow: 4px 4px 10px 2px rgba(128, 128, 128, 0.5);
+  border-radius: .625rem;
+  width: 50%;
+  max-height: 25rem;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.user-heading{
+  text-align: center;
+  background-color: #d3d3d3;
+  padding: .675rem 0;
+}
+
+.users-list{
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  padding-left: 1.25rem;
+}
+
+.users-list-header{
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  gap: .875rem;
+  font-weight: bold;
+  padding-left: .875rem;
+  height: 2rem /* 30px -> 1.875rem */;
+}
+
+.list-heading{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count{
+  display: flex;
+  flex-direction: column;
+}
+
+.image{
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+.users-image{
+  display: flex;
+  align-items: center;
+  gap: .875rem;
+  margin: .875rem;
+}
+
+.user-name, .user-email{
+  cursor: pointer;
+  text-align: left;
+}
+
+.user-name:hover{
+  opacity: .7;
+  transition: ease-in .3s;
+}
+
+.user-email:hover{
+  opacity: .7;
+  transition: ease-in .3s;
+}
+
+.name-email{
+  display: flex;
+  width: 24.5rem;
+  justify-content: space-between;
+  white-space: nowrap;
+  align-items: center;
+  font-size: .875rem;
+}
+
+.user-email{
+  width: 14rem;
+  text-align: left;
+}

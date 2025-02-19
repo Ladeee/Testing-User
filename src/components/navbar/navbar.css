@@ -1,0 +1,24 @@
+nav{
+  background-color: #d3d3d3;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+}
+
+.logo{
+  cursor: pointer;
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+.input{
+  padding-left: 1rem;
+  outline: none;
+  border: none;
+  background-color: white;
+  border-radius: 1.25rem;
+  width: 25rem /* 400px -> 25rem */;
+  height: 2rem /* 40px -> 2.5rem */;
+}

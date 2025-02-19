@@ -1,0 +1,37 @@
+.user-details-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.user-details-wrapper{
+  background-color: white;
+  padding: 1.25rem 2.5rem;
+  border-radius: .625rem;
+}
+
+.user-info{
+  margin-top: 1rem;
+}
+
+.detail-heading{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.detail-image{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+b{
+  font-size: 1rem;
+}
+
+.detail-test{
+  font-size: .875rem;
+  margin: 1rem 0;
+}
