@@ -6,8 +6,12 @@
       "dom.iterable",
       "esnext"
     ],
+<<<<<<< HEAD
     "types": ["vitest/globals", "msw"],
     "target": "es2020",
+=======
+    "types": ["vitest/globals"],
+>>>>>>> 9bbc907e0d99692fb0acc58788254c3e4c31d6d4
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

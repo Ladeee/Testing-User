@@ -26,7 +26,6 @@ const useUsers = () => {
   return useQuery({
     queryKey: ['users'],
     queryFn: fetchUsers,
-    retry: false
   })
 }
 
@@ -43,7 +42,7 @@ export default function Users() {
   }, [users, dispatch]);
 
   if (isLoading) return <p>Loading users...</p>
-if (error) return <p role="alert">Error loading users.</p>;
+  if (error) return <p>Error loading users.</p>
 
   const filteredUsers = users?.length
     ? users.filter((user) =>
