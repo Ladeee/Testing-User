@@ -2,7 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { MemoryRouter } from 'react-router-dom';
 import Users from '../../components/users';
-import { db, generateUsers } from '../mocks/mockDb';
+import { generateUsers } from '../mocks/mockDb';
 import axios from 'axios';
 
 vi.mock('axios', () => ({

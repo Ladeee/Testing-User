@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
 import UserDetails from '../../components/user-details';
-import { describe, it, expect, vi, beforeAll, afterEach, afterAll } from 'vitest';
+import {vi, beforeAll, afterEach, afterAll } from 'vitest';
 import { setupServer } from 'msw/node';
 import { db } from '../mocks/mockDb';
 import '@testing-library/jest-dom';
