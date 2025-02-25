@@ -4,11 +4,7 @@ const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 5000
 
-const cors = require('cors');
-app.use(cors());
-
 require('dotenv').config();
-
 
 app.get('/', async (req: any, res: any) => {
     try {
