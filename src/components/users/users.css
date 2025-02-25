@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   margin-top: 2.5rem;
-  padding-left: 1.25rem;
   padding-top: 1rem;
 }
 
@@ -91,4 +90,26 @@
 .user-email{
   width: 14rem;
   text-align: left;
+}
+
+@media (max-width: 760px) {
+  .users-list-wrapper{
+    overflow-x: hidden;
+    width: 90%;
+  }
+
+  .name-email{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .count-heading, .list-heading{
+    font-size: .875rem;
+    white-space: nowrap;
+  }
+
+  #email-heading{
+    display: none;
+  }
 }

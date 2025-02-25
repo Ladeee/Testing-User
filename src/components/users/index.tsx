@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 import './users.css'
-import { useUserContext } from '../userContent'
 
 interface User {
   id: number
@@ -16,49 +15,45 @@ interface User {
   phone: number
 }
 
+const USERS_URL = process.env.REACT_APP_USERS_API;
+
 const fetchUsers = async (): Promise<User[]> => {
-  const { data } = await axios.get('https://dummyjson.com/users?limit=20')
-  console.log(data.users)
-  return data.users
-}
+  console.log("API URL:", USERS_URL);
+  const { data } = await axios.get(`${USERS_URL}`);
+  console.log(data);
+  return data;
+};
 
 const useUsers = () => {
   return useQuery({
     queryKey: ['users'],
     queryFn: fetchUsers,
+    retry: false
   })
 }
 
 export default function Users() {
   const { data: users, isLoading, error } = useUsers()
-  const [, setSelectedUser] = useState<User | null>(null)
-  const { state, dispatch } = useUserContext();
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || ""
   const navigate = useNavigate()
-  
-  useEffect(() => {
-    if (users) {
-      dispatch({ type: "SET_USERS", payload: users });
-    }
-  }, [users, dispatch]);
 
+  
   if (isLoading) return <p>Loading users...</p>
-  if (error) return <p>Error loading users.</p>
+  if (error) {console.log('error:', error); return <p>Error loading users.</p>}
+
 
   const filteredUsers = users?.length
     ? users.filter((user) =>
         `${user.firstName} ${user.lastName} ${user.email}`
           .toLowerCase()
-          .includes(state.searchQuery.toLowerCase())
+          .includes(searchQuery.toLowerCase())
       )
     : [];
 
-  console.log("Filtered Users:", filteredUsers);
-
 
   const handleUserClick = (user: User) => {
-    dispatch({ type: "SET_SELECTED_USER", payload: user });
-    setSelectedUser(user)
-    navigate(`/user-details/${user.id}`, { state: {user} });
+    navigate(`/user-details/${user.id}`);
   }
 
   return (
@@ -69,7 +64,7 @@ export default function Users() {
           <p className="count-heading">S/N</p>
           <div className="list-heading">
             <p className="list-head">Name of Users</p>
-            <p className="list-head">Email of Users</p>
+            <p className="list-head" id='email-heading'>Email of Users</p>
           </div>
         </div>
         {filteredUsers?.map((user) => (

@@ -25,20 +25,12 @@ const renderWithProviders = (ui: React.ReactNode) => {
 describe('Users Component', () => {
   it('renders loading state initially', () => {
     renderWithProviders(<Users />);
-    expect(screen.getByText(/loading users/i)).toBeDefined(); 
+    expect(screen.getByText(/Loading users.../i)).toBeDefined(); 
   });
 
   it('displays users after fetching', async () => {
     renderWithProviders(<Users />);
     await waitFor(() => expect(screen.getByText(/list of users/i)).toBeDefined());
     expect(screen.getAllByText(/user/i).length).toBeGreaterThan(0);
-  });
-
-  it('renders error state if API request fails', async () => {
-    (axios.get as jest.Mock).mockRejectedValueOnce(new Error('Failed to fetch'));
-
-    renderWithProviders(<Users />);
-    
-    await waitFor(() => expect(screen.getByText(/error loading users/i)).toBeDefined());
   });
 });

@@ -1,10 +1,18 @@
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import './navbar.css'
-import { useUserContext } from '../userContent';
 
 export default function Navbar() {
-  const { state, dispatch } = useUserContext();
+  const [searchParams, setSearchParams] = useSearchParams();
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    if (query) {
+      searchParams.set("search", query);
+    } else {
+      searchParams.delete("search");
+    }
+    setSearchParams(searchParams);
+  };
   return (
     <nav>
       <Link to="/" className="link">
@@ -14,10 +22,8 @@ export default function Navbar() {
         type="text"
         placeholder="Search for users"
         className="input"
-        value={state.searchQuery}
-        onChange={(e) =>
-          dispatch({ type: "SET_SEARCH_QUERY", payload: e.target.value })
-        }
+        value={searchParams.get("search") || ""}
+        onChange={handleSearch}
       />
     </nav>
   )
