@@ -1,9 +1,8 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { MemoryRouter } from 'react-router-dom';
 import Users from '../../components/users';
 import { generateUsers } from '../mocks/mockDb';
-import axios from 'axios';
 
 vi.mock('axios', () => ({
   default: {
@@ -33,4 +32,15 @@ describe('Users Component', () => {
     await waitFor(() => expect(screen.getByText(/list of users/i)).toBeDefined());
     expect(screen.getAllByText(/user/i).length).toBeGreaterThan(0);
   });
+
+  it('calls handleUserClick when name or email is clicked', () => {
+    const handleUserClick = vi.fn()
+
+    render(<p className="name-email" onClick={handleUserClick}>Test User</p>)
+
+    const userElement = screen.getByText(/test user/i)
+    fireEvent.click(userElement)
+
+    expect(handleUserClick).toHaveBeenCalledTimes(1)
+  })
 });

@@ -1,8 +1,11 @@
 const express = require('express');
 const axios = require('axios'); 
+const cors = require('cors'); // Import cors
+
 
 const app = express();
 const port = process.env.PORT || 5000
+app.use(cors());
 
 require('dotenv').config();
 
@@ -31,3 +34,5 @@ app.get("/users/:id", async (req: any, res: any) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+
+export default app;
