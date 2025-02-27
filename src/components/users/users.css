@@ -86,6 +86,11 @@
   text-align: left;
 }
 
+.no-users{
+  text-align: center;
+  padding: 2rem;
+}
+
 @media (max-width: 1024px) {
   .users-list-wrapper{
     width: 70%;

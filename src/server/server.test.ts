@@ -16,4 +16,9 @@ describe("Test API endpoints", () => {
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty("id");
   });
+
+  it("should return 500 if the external API fails", async () => {
+    const res = await request(app).get("/users/:id");
+    expect(res.status).toBe(500);
+  });
 });

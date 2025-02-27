@@ -22,3 +22,23 @@ nav{
   width: 25rem /* 400px -> 25rem */;
   height: 2rem /* 40px -> 2.5rem */;
 }
+
+@media (max-width: 760px) {
+  nav{
+    padding: 0 1rem;
+  }
+
+  .input{
+    width: 20rem;
+  }
+
+  .logo{
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .input{
+    width: 12rem;
+  }
+}
