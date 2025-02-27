@@ -59,22 +59,32 @@ export default function Users() {
     <div className="users-container">
       <div className="users-list-wrapper">
         <h3 className="user-heading">List of Users</h3>
-        {filteredUsers?.map((user) => (
-          <div className="users-list" key={user.id}>
-            <p className="count">{user.id}.</p>
-            <div key={user.id} className="users-image">
-              <img src={user.image} alt="avatar" className="image" />
-              <div className="name-email">
-                <p className="user-name" onClick={() => handleUserClick(user)}>
-                  {user.firstName} {user.lastName}
-                </p>
-                <p className="user-email" onClick={() => handleUserClick(user)}>
-                  {user.email}
-                </p>
+        {filteredUsers?.length ? (
+          filteredUsers.map((user) => (
+            <div className="users-list" key={user.id}>
+              <p className="count">{user.id}.</p>
+              <div className="users-image">
+                <img src={user.image} alt="avatar" className="image" />
+                <div className="name-email">
+                  <p
+                    className="user-name"
+                    onClick={() => handleUserClick(user)}
+                  >
+                    {user.firstName} {user.lastName}
+                  </p>
+                  <p
+                    className="user-email"
+                    onClick={() => handleUserClick(user)}
+                  >
+                    {user.email}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <h1 className="no-users">No user found</h1>
+        )}
       </div>
     </div>
   )

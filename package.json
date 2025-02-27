@@ -55,6 +55,7 @@
     "@mswjs/data": "^0.16.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^8.24.1",
     "@typescript-eslint/parser": "^8.24.1",
     "@vitest/ui": "3.0.5",
@@ -62,6 +63,7 @@
     "eslint-config-react-app": "^7.0.1",
     "msw": "^2.7.2",
     "nodemon": "^3.1.9",
+    "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
     "vitest": "^3.0.7"
   }
